@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Exclusives from './components/Exclusives'
 import DiscoverGems from './components/DiscoverGems'
 import ExploreGhana from './components/ExploreGhana'
+import BlazingDeals from './components/BlazingDeals'
 import Footer from './components/Footer'
 import { sections } from './data/cards'
 import GlobalHighlights from './components/GlobalHighlights'
@@ -47,6 +48,7 @@ export default function App() {
             </section>
 
             {section.id === 'unmissable' && <Exclusives />}
+            {section.id === 'buzzing' && <BlazingDeals />}
             {section.id === 'buzzing' && <DiscoverGems />}
             {section.id === 'buzzing' && <ExploreGhana />}
           </React.Fragment>
