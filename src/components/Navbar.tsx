@@ -237,20 +237,37 @@ export default function Navbar() {
       <div className="subnav-row">
         <div className="container-fluid subnav-inner">
           <nav className="subnav" aria-label="Secondary Navigation">
-            <a className="sub-active" href="#">Home</a>
-            <a href="#">Events</a>
-            <a href="#">Tours</a>
-            <a href="#">Activities</a>
-            <a href="#">Indulge</a>
-            <a href="#">Places</a>
-            <a href="#">Movies</a>
-            <a href="#">Sports</a>
-            <a href="#">Restaurants</a>
-            <a href="#">Find a table</a>
-            <a href="#">Conferences</a>
-            <a href="#">Workshops</a>
-            <a href="#">Auditions</a>
-            <a href="#">People</a>
+            {
+              // list kept as an array for easy maintenance and to include requested items
+              [
+                'Home',
+                'Events',
+                'Tours',
+                'Activities',
+                'Indulge',
+                'Places',
+                'Movies',
+                'Sports',
+                'Restaurants',
+                'Find a table',
+                'Conferences',
+                'Workshops',
+                'Auditions',
+                'People',
+                'World Famous',
+                'Social Buddies',
+                'Virtual Experiences'
+              ].map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                  className={item === 'Home' ? 'sub-active' : ''}
+                >
+                  {item}
+                </a>
+              ))
+            }
           </nav>
         </div>
       </div>

@@ -4,6 +4,8 @@ export type CardItem = {
   subtitle: string
   date?: string | null
   image?: string | null
+  category?: string | null
+  price?: string | null
 }
 
 export type Section = {
@@ -17,9 +19,10 @@ export const sections: Section[] = [
     id: 'tonight',
     title: "Tonight's spotlight",
     items: [
-      { id: 1, title: 'Moonlight Concert', subtitle: 'Live at Accra', date: 'Nov 30' , image: null},
-      { id: 2, title: 'Indie Night', subtitle: 'Downtown Club', date: null, image: null },
-      { id: 3, title: 'Jazz Hour', subtitle: 'The Venue', date: 'Dec 1', image: null }
+      { id: 1, title: 'DJ Live North Live', subtitle: 'NewYork City', date: '10:30 PM - 12:30 PM', image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=2', category: 'Lounge', price: 'USD 89' },
+      { id: 2, title: 'DJ Live North Live', subtitle: 'NewYork City', date: '10:30 PM - 12:30 PM', image: 'https://images.unsplash.com/photo-1506152983158-1b4ef0b7f2a9?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1', category: 'Lounge', price: 'USD 89' },
+      { id: 3, title: 'DJ Live North Live', subtitle: 'NewYork City', date: '10:30 PM - 12:30 PM', image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3', category: 'Lounge', price: 'USD 89' },
+      { id: 4, title: 'DJ Live North Live', subtitle: 'NewYork City', date: '10:30 PM - 12:30 PM', image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=4', category: 'Lounge', price: 'USD 89' }
     ]
   },
   {
