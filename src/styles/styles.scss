@@ -382,6 +382,144 @@ $slider-inactive: #D9D9D9;
   .site-footer .footer-right { margin-top: 12px }
 }
 
+/* Layout override for Discover Hidden Gems: show four cards in a row and reduce section side margins so all four fit */
+#discover-gems.section { margin: auto 75px 80px; }
+#discover-gems .exclusive-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+#discover-gems .exclusive-card { height: 361px; border-radius: 12px; }
+#discover-gems .exclusive-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Global Highlights: same layout as Discover Hidden Gems but different id */
+#global-highlights.section { margin: auto 75px 80px; }
+#global-highlights .exclusive-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+#global-highlights .exclusive-card { height: 388px; border-radius: 12px; }
+#global-highlights .exclusive-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 1100px) {
+  #discover-gems .exclusive-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  #discover-gems.section { margin: auto 20px 60px; }
+  #discover-gems .exclusive-grid { grid-template-columns: repeat(1, 1fr); }
+}
+
+/* Explore Ghana grid: 6-column system, items span columns to create the three-row layout */
+#explore-ghana { margin: auto 80px 0px; }
+#explore-ghana .eg-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Link Explore Ghana and Ghana's Top 10s visually: full-bleed background.
+   Only `#explore-ghana` receives a subtle faded top divider via a pseudo-element.
+   Avoid adding bottom borders or forcing borders on the next section. */
+#explore-ghana {
+  position: relative;
+  background: #FAF8ED;
+  /* make background extend full-width while keeping inner content aligned to container */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 40px 75px;
+}
+
+#explore-ghana::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  pointer-events: none;
+  /* horizontal fade: transparent edges, subtle center line */
+  background: linear-gradient(90deg, rgba(250,248,237,0) 0%, rgba(15,23,36,0.06) 50%, rgba(250,248,237,0) 100%);
+}
+
+/* Keep `#tops` visually linked by background only; do not add borders */
+#tops {
+  background: #FAF8ED;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 40px 75px;
+}
+
+/* keep previous section spacing for inner content */
+#explore-ghana .section-head,
+#tops .section-head { margin-left: 0; }
+
+@media (max-width: 900px) {
+  #explore-ghana, #tops {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 28px 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  #explore-ghana, #tops { padding: 20px 16px; }
+}
+
+.eg-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  min-height: 160px;
+  overflow: hidden;
+  display: block;
+}
+
+.eg-card .eg-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+  color: #fff;
+}
+
+.eg-badge {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  background: rgba(255,255,255,0.95);
+  color: #111;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.eg-title { margin: 0 0 6px 0; font-size: 18px; font-weight: 700; }
+.eg-sub { margin: 0; font-size: 13px; opacity: 0.9 }
+
+/* column span helpers (out of 6) */
+.span-1 { grid-column: span 1; }
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+
+/* make larger cards taller for visual balance */
+.span-3 { min-height: 260px; }
+.span-4 { min-height: 240px; }
+.span-6 { min-height: 300px; }
+
+@media (max-width: 1100px) {
+  #explore-ghana .eg-grid { grid-template-columns: repeat(2, 1fr); }
+  .span-1, .span-2, .span-3, .span-4, .span-6 { grid-column: span 2 !important; }
+}
+
+@media (max-width: 600px) {
+  #explore-ghana { margin: auto 20px 80px; }
+  #explore-ghana .eg-grid { grid-template-columns: repeat(1, 1fr); }
+  .span-1, .span-2, .span-3, .span-4, .span-6 { grid-column: span 1 !important; }
+}
+
 .card {
   background: $card-bg;
   border-radius: 12px;
@@ -406,6 +544,16 @@ $slider-inactive: #D9D9D9;
 .card-media img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 
 .card-content { display:flex; flex-direction: column; align-items: flex-start; }
+
+/* Buzzing Destinations: full-bleed image, no card padding, content stacked below */
+#buzzing .card { padding: 0; }
+#buzzing .card-media { margin-bottom: 0; }
+#buzzing .card-media img { display:block; width:100%; height: 246px; object-fit: cover; border-radius: 12px 12px 5px 5px; }
+#buzzing .card-content { padding: 16px; }
+#buzzing .card-title { margin-top: 6px; font-size: 16px; }
+#buzzing .card-meta { margin-top: 8px; }
+#buzzing .card-desc { margin-top: 8px; color: $muted; font-size: 13px; line-height: 1.4; }
+#buzzing .card-price { margin-top: 10px; }
 
 .card-title { margin: 0; font-size: 16px; font-weight: $fw-semibold; color: #0f1724; letter-spacing: 0.01em }
 .card-sub { margin: 6px 0 0 0; color: $muted; font-size: 13px; font-weight: $fw-regular }

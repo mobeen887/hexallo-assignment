@@ -28,10 +28,12 @@ export default function Card({ item }: Props) {
       </div>
 
       <div className="card-content">
-        {/* Moved badge inside card-content to stack vertically */}
-        <button className="card-badge" aria-hidden>
-          {item.category ?? 'Lounge'}
-        </button>
+        {/* Moved badge inside card-content to stack vertically. Hide when `hideCategory` is set. */}
+        {item.category && !item.hideCategory ? (
+          <button className="card-badge" aria-hidden>
+            {item.category}
+          </button>
+        ) : null}
 
         <h3 className="card-title">{item.title}</h3>
 
@@ -55,10 +57,16 @@ export default function Card({ item }: Props) {
           <span className="meta-location">{item.subtitle}</span>
         </div>
 
-        <div className="card-price" aria-label={`Price ${item.price ?? ''}`}>
-          <span className="from">From</span>
-          <span className="amount">{item.price ?? 'USD 89'}</span>
-        </div>
+        {item.description ? (
+          <p className="card-desc">{item.description}</p>
+        ) : null}
+
+        {item.price ? (
+          <div className="card-price" aria-label={`Price ${item.price ?? ''}`}>
+            <span className="from">From</span>
+            <span className="amount">{item.price}</span>
+          </div>
+        ) : null}
       </div>
     </div>
   )

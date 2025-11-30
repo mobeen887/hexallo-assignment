@@ -3,8 +3,11 @@ import Card from './components/Card'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Exclusives from './components/Exclusives'
+import DiscoverGems from './components/DiscoverGems'
+import ExploreGhana from './components/ExploreGhana'
 import Footer from './components/Footer'
 import { sections } from './data/cards'
+import GlobalHighlights from './components/GlobalHighlights'
 
 export default function App() {
   return (
@@ -20,7 +23,7 @@ export default function App() {
               <div className="section-head">
                 <h2>
                   {section.title}
-                  {(section.id === 'tonight' || section.id === 'hot' || section.id === 'unmissable') && (
+                  {(section.id === 'tonight' || section.id === 'hot' || section.id === 'unmissable' || section.id === 'buzzing') && (
                     <svg
                       className="more-icon"
                       aria-hidden
@@ -44,9 +47,13 @@ export default function App() {
             </section>
 
             {section.id === 'unmissable' && <Exclusives />}
+            {section.id === 'buzzing' && <DiscoverGems />}
+            {section.id === 'buzzing' && <ExploreGhana />}
           </React.Fragment>
         ))}
       </main>
+
+      <GlobalHighlights />
 
       <Footer />
     </div>
