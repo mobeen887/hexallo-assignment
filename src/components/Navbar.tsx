@@ -17,6 +17,8 @@ export default function Navbar() {
   const [openCountry, setOpenCountry] = useState(false)
   const [openRegion, setOpenRegion] = useState(false)
   const [activeNav, setActiveNav] = useState<string>('Explore')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileSubnavOpen, setMobileSubnavOpen] = useState(false)
 
   useEffect(() => {
     function onDocClick(e: MouseEvent) {
@@ -216,7 +218,7 @@ export default function Navbar() {
                   <a
                     key={item}
                     href="#"
-                    onClick={(e) => { e.preventDefault(); setActiveNav(item) }}
+                    onClick={(e) => { e.preventDefault(); setActiveNav(item); setMobileMenuOpen(false) }}
                     className={activeNav === item ? 'active' : ''}
                   >
                     {item}
@@ -225,50 +227,135 @@ export default function Navbar() {
               }
             </nav>
 
+            {/* Hamburger menu button for mobile */}
+            <button 
+              className="hamburger-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              <span className={`hamburger-icon ${mobileMenuOpen ? 'open' : ''}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+
             {/* <div className="nav-cta">
               <button className="btn ghost small">Business</button>
               <button className="btn primary">Create Event</button>
             </div> */}
           </div>
         </div>
-      </div>
 
-      {/* secondary sub-navigation */}
-      <div className="subnav-row">
-        <div className="container-fluid subnav-inner">
-          <nav className="subnav" aria-label="Secondary Navigation">
+        {/* Mobile dropdown menu - outside nav-inner */}
+        <div className={`mobile-nav-menu ${mobileMenuOpen ? 'open' : ''}`}>
+          <nav className="mobile-nav" aria-label="Mobile Navigation">
             {
-              // list kept as an array for easy maintenance and to include requested items
               [
-                'Home',
-                'Events',
-                'Tours',
-                'Activities',
-                'Indulge',
-                'Places',
-                'Movies',
-                'Sports',
-                'Restaurants',
-                'Find a table',
-                'Conferences',
-                'Workshops',
-                'Auditions',
-                'People',
-                'World Famous',
-                'Social Buddies',
-                'Virtual Experiences'
-              ].map((item) => (
+                'Explore','Services','Nightlife','Travel','Accommodation','Spaces','Subscriptions','Vouchers','Rentals','Voting','Shop','Essentials','Healthcare','Jobs','Marketplace'
+              ].map(item => (
                 <a
                   key={item}
                   href="#"
-                  onClick={(e) => e.preventDefault()}
-                  className={item === 'Home' ? 'sub-active' : ''}
+                  onClick={(e) => { e.preventDefault(); setActiveNav(item); setMobileMenuOpen(false) }}
+                  className={activeNav === item ? 'active' : ''}
                 >
                   {item}
                 </a>
               ))
             }
           </nav>
+        </div>
+      </div>
+
+      {/* secondary sub-navigation */}
+      <div className="subnav-row">
+        <div className="container-fluid subnav-inner">
+          <div className="subnav-header">
+            <nav className="subnav" aria-label="Secondary Navigation">
+              {
+                // list kept as an array for easy maintenance and to include requested items
+                [
+                  'Home',
+                  'Events',
+                  'Tours',
+                  'Activities',
+                  'Indulge',
+                  'Places',
+                  'Movies',
+                  'Sports',
+                  'Restaurants',
+                  'Find a table',
+                  'Conferences',
+                  'Workshops',
+                  'Auditions',
+                  'People',
+                  'World Famous',
+                  'Social Buddies',
+                  'Virtual Experiences'
+                ].map((item) => (
+                  <a
+                    key={item}
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); setMobileSubnavOpen(false) }}
+                    className={item === 'Home' ? 'sub-active' : ''}
+                  >
+                    {item}
+                  </a>
+                ))
+              }
+            </nav>
+            
+            {/* Mobile subnav toggle */}
+            <button 
+              className="subnav-toggle-btn"
+              onClick={() => setMobileSubnavOpen(!mobileSubnavOpen)}
+              aria-label="Toggle secondary navigation"
+              aria-expanded={mobileSubnavOpen}
+            >
+              <span>More</span>
+              <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" className={`caret ${mobileSubnavOpen ? 'open' : ''}`}>
+                <path d="M0 0l5 6 5-6" fill="#666"/>
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile subnav dropdown */}
+          <div className={`mobile-subnav-menu ${mobileSubnavOpen ? 'open' : ''}`}>
+            <nav className="mobile-subnav" aria-label="Mobile Secondary Navigation">
+              {
+                [
+                  'Home',
+                  'Events',
+                  'Tours',
+                  'Activities',
+                  'Indulge',
+                  'Places',
+                  'Movies',
+                  'Sports',
+                  'Restaurants',
+                  'Find a table',
+                  'Conferences',
+                  'Workshops',
+                  'Auditions',
+                  'People',
+                  'World Famous',
+                  'Social Buddies',
+                  'Virtual Experiences'
+                ].map((item) => (
+                  <a
+                    key={item}
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); setMobileSubnavOpen(false) }}
+                    className={item === 'Home' ? 'sub-active' : ''}
+                  >
+                    {item}
+                  </a>
+                ))
+              }
+            </nav>
+          </div>
         </div>
       </div>
     </header>

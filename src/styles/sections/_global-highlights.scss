@@ -24,3 +24,62 @@
   object-fit: cover;
   display: block;
 }
+
+// Responsive Global Highlights
+// ------------------------------------
+
+@include respond-to(1200px) {
+  #global-highlights .exclusive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #global-highlights .exclusive-card {
+    height: 340px;
+  }
+}
+
+@include respond-to(1024px) {
+  #global-highlights .exclusive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  #global-highlights .exclusive-card {
+    height: 320px;
+  }
+}
+
+@include respond-to(768px) {
+  #global-highlights.section {
+    margin: auto 20px 60px;
+  }
+
+  #global-highlights .exclusive-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 14px;
+  }
+
+  #global-highlights .exclusive-card {
+    height: 300px;
+  }
+}
+
+@include respond-to(600px) {
+  #global-highlights.section {
+    margin: auto 12px 50px;
+  }
+
+  #global-highlights .exclusive-card {
+    height: 280px;
+  }
+
+  #global-highlights .exclusive-grid {
+    gap: 12px;
+  }
+}
+
+@include respond-to(480px) {
+  #global-highlights .exclusive-card {
+    height: 240px;
+  }
+}

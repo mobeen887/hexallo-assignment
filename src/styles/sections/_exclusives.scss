@@ -78,3 +78,62 @@
   cursor: pointer;
   align-self: flex-start;
 }
+
+// Responsive Exclusives
+// ------------------------------------
+
+@include respond-to(900px) {
+  .exclusives .exclusive-grid {
+    gap: 14px;
+  }
+
+  .exclusive-card {
+    height: 280px;
+  }
+
+  .exclusive-title {
+    font-size: 16px;
+  }
+
+  .exclusive-desc {
+    font-size: 12px;
+  }
+}
+
+@include respond-to(768px) {
+  .exclusives .exclusive-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .exclusive-card {
+    height: 320px;
+  }
+}
+
+@include respond-to(600px) {
+  .exclusives .exclusive-grid {
+    gap: 12px;
+  }
+
+  .exclusive-card {
+    height: 280px;
+  }
+
+  .exclusive-footer {
+    padding: 16px;
+  }
+
+  .exclusive-title {
+    font-size: 15px;
+  }
+}
+
+@include respond-to(480px) {
+  .exclusive-card {
+    height: 240px;
+  }
+
+  .exclusive-footer {
+    padding: 12px;
+  }
+}

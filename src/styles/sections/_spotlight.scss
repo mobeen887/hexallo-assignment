@@ -188,3 +188,94 @@
     display: inline-block;
   }
 }
+
+// Responsive Spotlight Sections
+// ------------------------------------
+
+// Desktop (< 1200px)
+@include respond-to(1200px) {
+  #tonight .cards-grid,
+  #hot .cards-grid,
+  #unmissable .cards-grid,
+  #foryou .cards-grid,
+  #tops .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Tablet (< 900px)
+@include respond-to(900px) {
+  #tonight .cards-grid,
+  #hot .cards-grid,
+  #unmissable .cards-grid,
+  #foryou .cards-grid,
+  #tops .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #tonight .card-media,
+  #hot .card-media,
+  #unmissable .card-media {
+    height: 200px;
+  }
+
+  #tonight .card-title {
+    font-size: 15px;
+  }
+
+  #tonight .card-sub {
+    font-size: 12px;
+  }
+}
+
+// Mobile (< 768px)
+@include respond-to(768px) {
+  #tonight .card-media,
+  #hot .card-media,
+  #unmissable .card-media {
+    height: 180px;
+  }
+
+  #tonight .card-title {
+    font-size: 14px;
+  }
+}
+
+// Mobile small (< 600px)
+@include respond-to(600px) {
+  #tonight .cards-grid,
+  #hot .cards-grid,
+  #unmissable .cards-grid,
+  #foryou .cards-grid,
+  #tops .cards-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #tonight .card,
+  #hot .card,
+  #unmissable .card {
+    padding: 10px;
+  }
+
+  #tonight .card-media,
+  #hot .card-media,
+  #unmissable .card-media {
+    height: 200px;
+    border-radius: 12px;
+  }
+}
+
+// Mobile extra small (< 480px)
+@include respond-to(480px) {
+  #tonight .card-media,
+  #hot .card-media,
+  #unmissable .card-media {
+    height: 180px;
+  }
+
+  #tonight .card,
+  #hot .card,
+  #unmissable .card {
+    padding: 8px;
+  }
+}

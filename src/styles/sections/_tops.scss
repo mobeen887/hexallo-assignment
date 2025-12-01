@@ -24,8 +24,22 @@
   }
 }
 
+@include respond-to(768px) {
+  #tops {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 28px 20px;
+  }
+}
+
 @include respond-to(600px) {
   #tops {
     padding: 20px 16px;
+  }
+}
+
+@include respond-to(480px) {
+  #tops {
+    padding: 20px 12px;
   }
 }

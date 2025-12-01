@@ -41,3 +41,28 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+@include respond-to(768px) {
+  #discover-gems .exclusive-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 14px;
+  }
+
+  #discover-gems .exclusive-card {
+    height: 320px;
+  }
+}
+
+@include respond-to(480px) {
+  #discover-gems.section {
+    margin: auto 12px 50px;
+  }
+
+  #discover-gems .exclusive-card {
+    height: 280px;
+  }
+
+  #discover-gems .exclusive-grid {
+    gap: 12px;
+  }
+}

@@ -69,3 +69,110 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+// Additional responsive breakpoints
+// ------------------------------------
+
+// Desktop & large tablets (< 1200px)
+@include respond-to(1200px) {
+  .section {
+    margin: auto 48px 80px;
+  }
+
+  .section-head h2 {
+    font-size: 19px;
+  }
+}
+
+// Tablet (< 1024px)
+@include respond-to(1024px) {
+  .container {
+    margin: 20px auto;
+    padding: 0 16px;
+  }
+
+  .section {
+    margin: auto 28px 70px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+}
+
+// Tablet (< 900px)
+@include respond-to(900px) {
+  .section {
+    margin: auto 20px 60px;
+  }
+
+  .section-head h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+// Mobile (< 768px)
+@include respond-to(768px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .container-fluid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .section {
+    margin: auto 16px 50px;
+  }
+
+  .section-head h2 {
+    font-size: 17px;
+    margin-bottom: 14px;
+  }
+}
+
+// Mobile small (< 600px)
+@include respond-to(600px) {
+  .section {
+    margin: auto 12px 40px;
+  }
+
+  .section-head h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+  }
+}
+
+// Mobile extra small (< 480px)
+@include respond-to(480px) {
+  .container {
+    padding: 0 8px;
+  }
+
+  .container-fluid {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .section {
+    margin: auto 8px 32px;
+  }
+
+  .section-head h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}

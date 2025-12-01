@@ -18,6 +18,11 @@ html,
 body {
   background: $bg;
   color: #0f1724;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 // Remove default button styles

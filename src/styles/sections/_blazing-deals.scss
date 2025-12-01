@@ -10,7 +10,7 @@
 
 .deals-wrap {
   display: grid;
-  grid-template-columns: 480px 1fr;
+  grid-template-columns: minmax(320px, 480px) 1fr;
   gap: 28px;
   align-items: center;
 }
@@ -247,5 +247,169 @@
   .deal-card {
     min-width: 100%;
     scroll-snap-align: start;
+  }
+}
+
+@include respond-to(1024px) {
+  #blazing-deals {
+    margin: auto 28px 70px;
+  }
+
+  .deals-wrap {
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+  }
+
+  .deals-info h3 {
+    font-size: 20px;
+  }
+
+  .deals-desc {
+    font-size: 14px;
+  }
+
+  .time-box {
+    padding: 20px;
+    min-width: 85px;
+  }
+
+  .time-num {
+    font-size: 28px;
+  }
+
+  .time-label {
+    font-size: 13px;
+  }
+
+  .deal-card {
+    flex: 0 0 220px;
+    max-width: 220px;
+  }
+
+  .deal-media {
+    height: 300px;
+  }
+
+  .deal-title {
+    font-size: 20px;
+  }
+
+  .deal-amount {
+    font-size: 24px;
+  }
+}
+
+@include respond-to(768px) {
+  #blazing-deals {
+    margin: auto 16px 50px;
+  }
+
+  .deals-info h3 {
+    font-size: 18px;
+  }
+
+  .deals-desc {
+    font-size: 13px;
+  }
+
+  .time-box {
+    padding: 16px;
+    min-width: 75px;
+  }
+
+  .time-num {
+    font-size: 24px;
+  }
+
+  .time-label {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+}
+
+@include respond-to(600px) {
+  #blazing-deals {
+    margin: auto 12px 40px;
+  }
+
+  .deals-info {
+    padding-right: 0;
+  }
+
+  .deals-info h3 {
+    font-size: 17px;
+  }
+
+  .explore-offers {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .deal-timer .time-grid {
+    gap: 14px;
+  }
+
+  .time-box {
+    padding: 14px;
+    min-width: 70px;
+  }
+
+  .time-num {
+    font-size: 22px;
+  }
+}
+
+@include respond-to(480px) {
+  .deals-info h3 {
+    font-size: 16px;
+  }
+
+  .deals-desc {
+    font-size: 12px;
+    margin: 8px 0 16px 0;
+  }
+
+  .explore-offers {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .deal-timer .time-grid {
+    gap: 10px;
+  }
+
+  .time-box {
+    padding: 12px;
+    min-width: 60px;
+  }
+
+  .time-num {
+    font-size: 20px;
+  }
+
+  .time-label {
+    font-size: 11px;
+    margin-top: 6px;
+  }
+
+  .deal-card {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+
+  .deal-media {
+    height: 280px;
+  }
+
+  .deal-title {
+    font-size: 18px;
+  }
+
+  .deal-sub {
+    font-size: 12px;
+  }
+
+  .deal-amount {
+    font-size: 22px;
   }
 }

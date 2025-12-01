@@ -223,3 +223,142 @@
     margin-top: 10px;
   }
 }
+
+// Responsive Card Styles
+// ------------------------------------
+
+// Tablet (< 1024px)
+@include respond-to(1024px) {
+  .card {
+    padding: 12px;
+    min-height: 130px;
+  }
+
+  .card-title {
+    font-size: 15px;
+  }
+
+  .card-sub,
+  .card-meta {
+    font-size: 12px;
+  }
+
+  .card-badge {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .card-price {
+    font-size: 12px;
+  }
+}
+
+// Tablet (< 900px)
+@include respond-to(900px) {
+  .card {
+    padding: 10px;
+  }
+
+  .card-media {
+    margin-bottom: 10px;
+  }
+
+  .card-top {
+    right: 16px;
+    top: 16px;
+  }
+
+  .card-badge {
+    margin-bottom: 10px;
+  }
+}
+
+// Mobile (< 768px)
+@include respond-to(768px) {
+  .card {
+    padding: 10px;
+    min-height: 120px;
+  }
+
+  .card-title {
+    font-size: 14px;
+  }
+
+  .card-sub,
+  .card-meta {
+    font-size: 11px;
+    margin-top: 6px;
+  }
+
+  .card-badge {
+    font-size: 10px;
+    padding: 4px 7px;
+    top: 4px;
+  }
+
+  .card-price {
+    font-size: 11px;
+    margin: 8px 0;
+  }
+
+  .card-top {
+    right: 12px;
+    top: 12px;
+  }
+
+  .card-date {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .card-date .heart-icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+// Mobile small (< 600px)
+@include respond-to(600px) {
+  .card {
+    padding: 8px;
+  }
+
+  .card-media {
+    margin-bottom: 8px;
+  }
+
+  .card-content {
+    gap: 4px;
+  }
+}
+
+// Buzzing section responsive
+@include respond-to(768px) {
+  #buzzing .card-media img {
+    height: 200px;
+  }
+
+  #buzzing .card-content {
+    padding: 12px;
+  }
+
+  #buzzing .card-title {
+    font-size: 14px;
+  }
+}
+
+@include respond-to(600px) {
+  #buzzing .card-media img {
+    height: 180px;
+  }
+
+  #buzzing .card-content {
+    padding: 10px;
+  }
+}
+
+@include respond-to(480px) {
+  #buzzing .card-media img {
+    height: 160px;
+  }
+}

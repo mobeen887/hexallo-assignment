@@ -120,7 +120,7 @@
   }
 }
 
-@include respond-to(900px) {
+@include respond-to(1100px) {
   #explore-ghana {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -130,7 +130,10 @@
 
 @include respond-to(600px) {
   #explore-ghana {
-    margin: auto 20px 80px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: auto;
+    margin-bottom: 80px;
     padding: 20px 16px;
   }
 
@@ -144,5 +147,53 @@
   .span-4,
   .span-6 {
     grid-column: span 1 !important;
+  }
+}
+
+@include respond-to(768px) {
+  #explore-ghana {
+    padding: 32px 20px;
+  }
+
+  .eg-title {
+    font-size: 16px;
+  }
+
+  .eg-sub {
+    font-size: 12px;
+  }
+
+  .eg-badge {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+@include respond-to(480px) {
+  #explore-ghana {
+    padding: 24px 12px;
+  }
+
+  .eg-card {
+    min-height: 140px;
+  }
+
+  .eg-title {
+    font-size: 15px;
+  }
+
+  .eg-sub {
+    font-size: 11px;
+  }
+
+  .eg-badge {
+    font-size: 11px;
+    padding: 4px 7px;
+    left: 12px;
+    top: 10px;
+  }
+
+  .eg-overlay {
+    padding: 12px;
   }
 }
