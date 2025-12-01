@@ -1,0 +1,43 @@
+// Discover Hidden Gems Section
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+#discover-gems.section {
+  margin: auto $spacing-2xl 80px;
+}
+
+#discover-gems .exclusive-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+#discover-gems .exclusive-card {
+  height: 361px;
+  border-radius: $radius-lg;
+}
+
+#discover-gems .exclusive-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// Responsive
+@include respond-to(1100px) {
+  #discover-gems .exclusive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include respond-to(600px) {
+  #discover-gems.section {
+    margin: auto 20px 60px;
+  }
+
+  #discover-gems .exclusive-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

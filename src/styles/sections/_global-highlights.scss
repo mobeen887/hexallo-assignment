@@ -1,0 +1,26 @@
+// Global Highlights Section
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+#global-highlights.section {
+  margin: auto $spacing-2xl 80px;
+}
+
+#global-highlights .exclusive-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+#global-highlights .exclusive-card {
+  height: 388px;
+  border-radius: $radius-lg;
+}
+
+#global-highlights .exclusive-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

@@ -1,0 +1,225 @@
+// Card Component Styles
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.card {
+  background: $card-bg;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  position: relative;
+  padding: 14px;
+  min-height: 140px;
+  @include flex-column;
+  justify-content: space-between;
+  transition: transform $transition-base cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow $transition-base;
+  box-shadow: $shadow-sm;
+  border: 1px solid rgba(15, 23, 36, 0.06);
+  cursor: pointer;
+
+  &:focus {
+    @include focus-ring;
+  }
+}
+
+// Card media
+.card-media {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.18), rgba(0, 200, 255, 0.08));
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 12px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+}
+
+// Card content
+.card-content {
+  @include flex-column;
+  align-items: flex-start;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: $fw-semibold;
+  color: #0f1724;
+  letter-spacing: 0.01em;
+}
+
+.card-sub {
+  margin: 6px 0 0 0;
+  color: $muted;
+  font-size: 13px;
+  font-weight: $fw-regular;
+}
+
+// Card meta (date, time, location)
+.card-meta {
+  margin-top: 8px;
+  color: $muted;
+  font-size: 13px;
+  @include flex-center;
+
+  .meta-time,
+  .meta-location {
+    color: $muted;
+  }
+
+  .meta-sep {
+    color: rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Meta icons (hidden by default, shown on hover)
+.card .meta-icon {
+  @include flex-center;
+  color: $muted;
+  opacity: 0;
+  width: 0;
+  margin-right: 0;
+  overflow: hidden;
+  transition: opacity 160ms ease, width 160ms ease, margin 160ms ease, padding 160ms ease,
+    background-color 160ms ease;
+  padding: 0;
+  border-radius: $radius-full;
+
+  svg {
+    display: block;
+  }
+}
+
+// Badge
+.card-badge {
+  background: #f7e4b6;
+  color: black;
+  padding: 5px 10px;
+  border-radius: $radius-md;
+  font-size: 11px;
+  font-weight: 400;
+  border: none;
+  box-shadow: $shadow-sm;
+  cursor: default;
+  line-height: 120%;
+  margin-bottom: 12px;
+  position: relative;
+  top: 5px;
+  left: 0;
+}
+
+// Price
+.card-price {
+  display: inline-flex;
+  font-size: 13px;
+  gap: 8px;
+  margin: 10px 0;
+
+  .from {
+    color: $muted;
+  }
+
+  .amount {
+    font-weight: $fw-semibold;
+    color: #000;
+  }
+}
+
+// Card top (heart icon area)
+.card-top {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 999999;
+}
+
+.card-date {
+  @include flex-center;
+  gap: 6px;
+  background: $glass;
+  padding: 6px 8px;
+  border-radius: $radius-full;
+  font-size: 13px;
+  color: $muted;
+}
+
+.card-date .calendar-icon,
+.card-date .heart-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+}
+
+// CTA button
+.card-cta {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 36, 0.06);
+  padding: 6px 10px;
+  border-radius: $radius-md;
+  color: #0f1724;
+  cursor: pointer;
+  font-weight: $fw-semibold;
+}
+
+// Description (shown on hover)
+.card .card-hover-desc {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  transition: max-height $transition-base, opacity 200ms ease, margin 200ms ease;
+  color: #24282c;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+// Buzzing section card specific styles
+#buzzing .card {
+  padding: 0;
+
+  .card-media {
+    margin-bottom: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 246px;
+      object-fit: cover;
+      border-radius: $radius-lg $radius-lg 5px 5px;
+    }
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-title {
+    margin-top: 6px;
+    font-size: 16px;
+  }
+
+  .card-meta {
+    margin-top: 8px;
+  }
+
+  .card-desc {
+    margin-top: 8px;
+    color: $muted;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .card-price {
+    margin-top: 10px;
+  }
+}

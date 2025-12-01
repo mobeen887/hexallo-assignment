@@ -1,0 +1,31 @@
+// Ghana's Top 10s Section
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+#tops {
+  background: #faf8ed;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 40px $spacing-2xl;
+}
+
+#tops .section-head {
+  margin-left: 0;
+}
+
+// Responsive
+@include respond-to(900px) {
+  #tops {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 28px 28px;
+  }
+}
+
+@include respond-to(600px) {
+  #tops {
+    padding: 20px 16px;
+  }
+}

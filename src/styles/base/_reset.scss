@@ -1,0 +1,48 @@
+// Global Resets & Base Styles
+// ====================================
+
+@use 'variables' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: $font-family;
+}
+
+body {
+  background: $bg;
+  color: #0f1724;
+}
+
+// Remove default button styles
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// Remove default link underline
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Remove list styles
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Ensure images are responsive
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

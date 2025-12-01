@@ -1,0 +1,148 @@
+// Explore Ghana Section
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+#explore-ghana {
+  position: relative;
+  background: #faf8ed;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 40px $spacing-2xl;
+  margin-top: auto;
+  margin-bottom: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      rgba(250, 248, 237, 0) 0%,
+      rgba(15, 23, 36, 0.06) 50%,
+      rgba(250, 248, 237, 0) 100%
+    );
+  }
+}
+
+#explore-ghana .section-head {
+  margin-left: 0;
+}
+
+// Grid
+.eg-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+// Card
+.eg-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: $radius-lg;
+  min-height: 160px;
+  overflow: hidden;
+  display: block;
+}
+
+.eg-overlay {
+  @include card-overlay;
+  @include gradient-overlay(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55), 180deg);
+}
+
+.eg-badge {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  padding: 6px 10px;
+  border-radius: $radius-full;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.eg-title {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.eg-sub {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+// Column span helpers
+.span-1 {
+  grid-column: span 1;
+}
+.span-2 {
+  grid-column: span 2;
+}
+.span-3 {
+  grid-column: span 3;
+  min-height: 260px;
+}
+.span-4 {
+  grid-column: span 4;
+  min-height: 240px;
+}
+.span-5 {
+  grid-column: span 5;
+}
+.span-6 {
+  grid-column: span 6;
+  min-height: 300px;
+}
+
+// Responsive
+@include respond-to(1100px) {
+  .eg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .span-1,
+  .span-2,
+  .span-3,
+  .span-4,
+  .span-6 {
+    grid-column: span 2 !important;
+  }
+}
+
+@include respond-to(900px) {
+  #explore-ghana {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 28px 28px;
+  }
+}
+
+@include respond-to(600px) {
+  #explore-ghana {
+    margin: auto 20px 80px;
+    padding: 20px 16px;
+  }
+
+  .eg-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .span-1,
+  .span-2,
+  .span-3,
+  .span-4,
+  .span-6 {
+    grid-column: span 1 !important;
+  }
+}

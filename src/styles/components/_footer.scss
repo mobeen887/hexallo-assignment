@@ -1,0 +1,86 @@
+// Footer Styles
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.site-footer {
+  background: $nav-accent;
+  color: #fff;
+  padding: 0;
+  height: 44px;
+}
+
+.footer-inner {
+  @include flex-between;
+  gap: 24px;
+  margin: auto $spacing-2xl;
+}
+
+.footer-left {
+  @include flex-center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.copyright {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.footer-links {
+  @include flex-center;
+  gap: 18px;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.footer-right {
+  @include flex-center;
+  gap: 12px;
+}
+
+// Social icons
+.social {
+  @include flex-center;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-3px) scale(1.05);
+    outline: none;
+  }
+
+  svg {
+    display: block;
+  }
+
+  img {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Responsive
+@include respond-to(700px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-right {
+    margin-top: 12px;
+  }
+}

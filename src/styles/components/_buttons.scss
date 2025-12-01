@@ -1,0 +1,71 @@
+// Button Styles
+// ====================================
+
+@use '../base/variables' as *;
+
+.btn {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  border-radius: $radius-md;
+  cursor: pointer;
+  font-weight: $fw-medium;
+  transition: all $transition-fast;
+
+  &.ghost {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: inherit;
+  }
+
+  &.primary {
+    background: $nav-accent;
+    color: white;
+    border: none;
+  }
+
+  &.small {
+    padding: 6px 10px;
+    border-radius: $radius-sm;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Utility button variants
+.util-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.4;
+
+  &.business {
+    color: $nav-accent;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  &.create {
+    color: #000;
+    font-size: 13px;
+    font-weight: bolder;
+  }
+}
+
+.util-toggle {
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}

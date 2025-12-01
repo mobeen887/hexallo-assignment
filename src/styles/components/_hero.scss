@@ -1,0 +1,215 @@
+// Hero Section Styles
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.hero {
+  margin: 35px $spacing-2xl;
+}
+
+.hero-card {
+  height: 570px;
+  border-radius: $radius-lg;
+  background-size: cover;
+  background-position: center;
+  margin: 0 0 12px 0;
+  overflow: hidden;
+  @include flex-center;
+  box-shadow: $shadow-lg;
+}
+
+.hero-inner {
+  @include flex-center;
+  height: 100%;
+}
+
+.hero-text {
+  max-width: 760px;
+  color: white;
+  padding: $spacing-xl $spacing-md;
+
+  h1 {
+    font-size: 36px;
+    line-height: 140%;
+    margin: 0 0 12px 0;
+    font-weight: $fw-bold;
+    letter-spacing: 0.012em;
+    text-shadow: 0 8px 20px rgba(2, 6, 23, 0.5);
+    text-align: center;
+  }
+}
+
+.hero-sub {
+  font-size: 14px;
+  line-height: 140%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 8px 0 20px 0;
+  font-weight: $fw-medium;
+  letter-spacing: $tracking-normal;
+}
+
+// Hero search form
+// ------------------------------------
+.hero-search {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  background: $nav-cream;
+  border-radius: $radius-lg;
+  border: 2px solid lightgray;
+  height: 37px;
+  padding: 0 5px;
+  box-shadow: $shadow-md;
+  width: fit-content;
+}
+
+.search-field {
+  @include flex-center;
+  height: 33px;
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  &.small {
+    width: 140px;
+    flex: 0 0 140px;
+  }
+}
+
+.field-emoji {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  margin: 0 8px;
+  @include flex-center;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform $transition-fast, opacity $transition-fast;
+}
+
+.search-field:hover .field-emoji,
+.search-field:focus-within .field-emoji {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.search-input {
+  background: transparent;
+  border-radius: $radius-lg;
+  padding: 0 8px 0 15px;
+  height: 33px;
+  line-height: 28px;
+  border: 2px solid transparent;
+  min-width: 0;
+  flex: 1;
+  color: #0f1724;
+  font-size: 13px;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+// Hover states
+.search-field:hover .search-input {
+  background: #f4e6c9;
+  color: #6b6b6b;
+  border: 2px solid #ffffff;
+  box-shadow: $shadow-md, inset 0 6px 12px rgba(255, 255, 255, 0.6);
+  transition: background-color 160ms ease, border-color 120ms ease;
+
+  &::placeholder {
+    color: #6b6b6b;
+    opacity: 1;
+  }
+}
+
+.search-field:hover .field-emoji {
+  transform: scale(1.15);
+  font-size: 18px;
+  margin-left: 12px;
+}
+
+.search-field:focus-within .search-input {
+  background: transparent;
+  color: #0f1724;
+  font-weight: $fw-medium;
+
+  &::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+  }
+}
+
+// Search button
+.search-btn {
+  background: $search-btn;
+  color: #ffffff;
+  border: 2px solid white;
+  border-radius: $radius-lg;
+  padding: 0 12px;
+  height: 33px;
+  min-width: 36px;
+  cursor: pointer;
+  box-shadow: none;
+  @include flex-center;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+
+    path,
+    circle {
+      stroke: #fff;
+      fill: none;
+    }
+  }
+}
+
+// Hero dots (slider pagination)
+// ------------------------------------
+.hero-dots {
+  @include flex-center;
+  gap: 8px;
+  padding: 6px 0 26px 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  min-height: 10px;
+  padding: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: $slider-inactive;
+  border: none;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 160ms ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: 2px solid rgba(174, 111, 40, 0.14);
+    outline-offset: 4px;
+  }
+
+  &.active {
+    background: $slider-active;
+    box-shadow: 0 4px 12px rgba(174, 111, 40, 0.18);
+  }
+}

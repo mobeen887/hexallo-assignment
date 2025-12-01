@@ -1,0 +1,71 @@
+// Container & Layout Utilities
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: $spacing-lg auto;
+  padding: 0 $spacing-md;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+}
+
+// Section layout
+.section {
+  margin: auto $spacing-2xl 100px;
+}
+
+.section-head {
+  margin-bottom: $spacing-md;
+
+  h2 {
+    margin: 0 0 $spacing-md 0;
+    font-size: 20px;
+    @include flex-center;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+}
+
+// More icon (chevron after section headings)
+.more-icon {
+  color: #000;
+  margin-left: 8px;
+  vertical-align: middle;
+
+  svg,
+  & {
+    vertical-align: middle;
+  }
+
+  path {
+    stroke: #000;
+  }
+}
+
+// Grid systems
+// ------------------------------------
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+// Responsive adjustments
+@include respond-to(600px) {
+  .cards-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

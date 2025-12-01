@@ -1,0 +1,260 @@
+// Navbar Styles
+// ====================================
+
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.site-top {
+  font-family: $font-family;
+}
+
+// Utility row (top bar)
+// ------------------------------------
+.util-row {
+  background: #fff;
+  color: #555;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 13px;
+}
+
+.util-inner {
+  @include flex-between;
+  padding: 5px $spacing-2xl;
+}
+
+.util-left {
+  color: #666;
+}
+
+.util-right {
+  margin-left: auto;
+  color: #666;
+  @include flex-center;
+}
+
+// Utility list
+.util-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include flex-center;
+  gap: 18px;
+}
+
+.util-item {
+  color: #6b6b6b;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  @include flex-center;
+  gap: 8px;
+  position: relative;
+
+  .icon-svg,
+  .flag-svg,
+  .caret-svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .flag-svg {
+    width: 25px;
+    height: auto;
+    border-radius: 3px;
+  }
+
+  .caret-svg {
+    margin-left: 4px;
+  }
+
+  .sign {
+    color: #000;
+  }
+}
+
+// Dropdown styling
+.util-item .dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #fff;
+  border: 1px solid rgba(15, 23, 36, 0.06);
+  box-shadow: $shadow-md;
+  border-radius: $radius-sm;
+  z-index: 60;
+  min-width: 160px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px 6px;
+
+    li {
+      padding: 6px 10px;
+
+      button {
+        background: transparent;
+        border: none;
+        width: 100%;
+        text-align: left;
+        padding: 6px 8px;
+        cursor: pointer;
+        color: #0f1724;
+
+        &:hover {
+          background: rgba(15, 23, 36, 0.03);
+        }
+      }
+    }
+  }
+}
+
+.util-item.open .dropdown {
+  display: block;
+}
+
+// Main navigation row
+// ------------------------------------
+.nav-row {
+  background: $nav-dark;
+  color: #fff;
+}
+
+.nav-inner {
+  @include flex-center;
+  gap: 20px;
+  padding: 5px $spacing-2xl;
+}
+
+.nav-left {
+  @include flex-center;
+  gap: 12px;
+}
+
+.logo-wrap {
+  width: 34px;
+  height: 34px;
+  @include flex-center;
+}
+
+.brand-text {
+  font-weight: $fw-bold !important;
+  font-size: 20px !important;
+  margin-left: 0 !important;
+  letter-spacing: 0.04em !important;
+  color: #fff;
+}
+
+.nav-main {
+  @include flex-center;
+  gap: 25px;
+  position: relative;
+
+  a {
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    font-size: 15px;
+    padding: 6px 4px;
+    letter-spacing: $tracking-wide;
+    font-weight: $fw-regular;
+    position: relative;
+
+    &.active {
+      color: #ffe6c9;
+      font-weight: $fw-semibold;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $nav-accent;
+        bottom: -7px;
+        width: 60px;
+        height: 5px;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+.nav-right {
+  margin-left: auto;
+  @include flex-center;
+  gap: 18px;
+}
+
+.nav-cta {
+  @include flex-center;
+  gap: 10px;
+}
+
+// Sub-navigation row
+// ------------------------------------
+.subnav-row {
+  background: $nav-cream;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.subnav-inner {
+  padding: 0 65px 0 110px;
+}
+
+.subnav {
+  @include flex-center;
+  gap: 25px;
+  font-size: 14px;
+  color: #444;
+
+  a {
+    color: #6b6b6b;
+    text-decoration: none;
+    padding: 10px 6px;
+    letter-spacing: $tracking-normal;
+    font-weight: $fw-regular;
+
+    &.sub-active {
+      color: #222;
+      position: relative;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.01em;
+
+      &::after {
+        background: $nav-accent;
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 5px;
+        width: 50px;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+// Typography defaults for all nav rows
+.site-top .util-row,
+.site-top .nav-row,
+.site-top .subnav-row {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: #6a6a6a;
+}
+
+// Ensure inner elements inherit
+.site-top .nav-main a,
+.site-top .nav-main a.active,
+.site-top .subnav a,
+.site-top .util-inner,
+.site-top .brand-text,
+.site-top .nav-cta .btn,
+.site-top .logo-wrap {
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
