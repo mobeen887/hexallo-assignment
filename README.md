@@ -154,4 +154,7 @@ MIT License - See LICENSE file for details
 
 ## 👨‍💻 Author
 
+**Mubeen Hussain**  
+Senior Software Engineer
+
 Developed as an assignment for Hexallo

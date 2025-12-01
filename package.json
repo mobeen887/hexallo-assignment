@@ -1,6 +1,7 @@
 {
   "name": "hexallo-home-frontend",
   "version": "1.0.0",
+  "author": "Mubeen Hussain <shahmobeen333@gmail.com> (Senior Software Engineer)",
   "private": true,
   "type": "module",
   "scripts": {
