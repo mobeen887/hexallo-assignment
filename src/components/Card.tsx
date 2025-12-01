@@ -48,7 +48,6 @@ export default function Card({ item, sectionId }: Props) {
         ) : null}
 
         <h3 className="card-title">{item.title}</h3>
-        <p className="card-sub">{item.subtitle}</p>
 
         {item.date && item.time ? (
           <>
