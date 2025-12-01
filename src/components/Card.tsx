@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { memo } from 'react'
 import type { CardItem } from '../data/cards'
+import Icon from './Icon'
 
 type Props = {
   item: CardItem
   sectionId?: string
 }
 
-export default function Card({ item, sectionId }: Props) {
+const Card = memo(function Card({ item, sectionId }: Props) {
   const rootClass = `card ${item.date ? 'with-date' : 'no-date'} ${sectionId ? `section-${sectionId}` : ''}`
 
   const showMeta = sectionId !== 'buzzing'
@@ -16,9 +17,7 @@ export default function Card({ item, sectionId }: Props) {
       <div className="card-top" aria-hidden>
         {item.date ? (
           <div className="card-date">
-            <svg className="heart-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-              <path d="M20.8 4.6c-1.8-1.8-4.7-1.8-6.5 0L12 6.9l-2.3-2.3c-1.8-1.8-4.7-1.8-6.5 0-1.9 1.9-1.9 4.9 0 6.8L12 22l8.8-10.6c1.9-1.9 1.9-4.9 0-6.8z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
+            <Icon type="heart" width={14} height={14} className="heart-icon" />
           </div>
         ) : null}
       </div>
@@ -28,13 +27,11 @@ export default function Card({ item, sectionId }: Props) {
           <img
             src={item.image}
             alt={item.title ?? 'card image'}
-            onError={(e) => {
-              // fallback to a small placeholder in public/icons if image fails
-              // @ts-ignore
-              e.currentTarget.onerror = null
-              // set to a public placeholder if present
-              // eslint-disable-next-line no-param-reassign
-              e.currentTarget.src = '/icons/placeholder.svg'
+            loading="lazy"
+            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+              const target = e.currentTarget
+              target.onerror = null
+              target.src = '/icons/placeholder.svg'
             }}
           />
         ) : null}
@@ -42,9 +39,9 @@ export default function Card({ item, sectionId }: Props) {
 
       <div className="card-content">
         {item.category && !item.hideCategory ? (
-          <button className="card-badge" aria-hidden>
+          <span className="card-badge">
             {item.category}
-          </button>
+          </span>
         ) : null}
 
         <h3 className="card-title">{item.title}</h3>
@@ -54,10 +51,7 @@ export default function Card({ item, sectionId }: Props) {
             <div className="card-meta">
               {showMeta ? (
                 <span className="meta-icon" aria-hidden>
-                  <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.6" />
-                    <path d="M8 3v4M16 3v4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <Icon type="calendar" width={16} height={16} />
                 </span>
               ) : null}
               <span className="meta-day">{item.date}</span>
@@ -66,10 +60,7 @@ export default function Card({ item, sectionId }: Props) {
             <div className="card-meta">
               {showMeta ? (
                 <span className="meta-icon" aria-hidden>
-                  <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1.6" />
-                    <path d="M12 8v4l3 2" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <Icon type="clock" width={16} height={16} />
                 </span>
               ) : null}
               <span className="meta-time">{item.time}</span>
@@ -79,10 +70,7 @@ export default function Card({ item, sectionId }: Props) {
           <div className="card-meta">
             {showMeta ? (
               <span className="meta-icon" aria-hidden>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M16 3v4M8 3v4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <Icon type="calendar" width={14} height={14} />
               </span>
             ) : null}
             <span className="meta-time">{item.date}</span>
@@ -92,10 +80,7 @@ export default function Card({ item, sectionId }: Props) {
         <div className="card-meta">
           {showMeta ? (
             <span className="meta-icon" aria-hidden>
-              <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                <circle cx="12" cy="8" r="2.2" fill="none" stroke="currentColor" strokeWidth="1.6" />
-              </svg>
+              <Icon type="location" width={16} height={16} />
             </span>
           ) : null}
           <span className="meta-location">{item.subtitle}</span>
@@ -116,4 +101,6 @@ export default function Card({ item, sectionId }: Props) {
       </div>
     </div>
   )
-}
+})
+
+export default Card

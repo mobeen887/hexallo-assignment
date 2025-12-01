@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Icon from './Icon'
 
 const IMAGES = [
   // Eye-catching HD destinations from Unsplash
@@ -50,10 +51,7 @@ export default function Hero() {
               </div>
 
               <button className="search-btn" aria-label="Search" type="submit">
-                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M21 21l-4.35-4.35" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="11" cy="11" r="6" stroke="#fff" strokeWidth="2" fill="none" />
-                </svg>
+                <Icon type="search" width={16} height={16} />
               </button>
             </form>
           </div>

@@ -145,11 +145,11 @@
   flex-shrink: 0;
 }
 
-.brand-text {
-  font-weight: $fw-bold !important;
-  font-size: 18px !important;
-  margin-left: 0 !important;
-  letter-spacing: 0.02em !important;
+.nav-left .brand-text {
+  font-weight: $fw-bold;
+  font-size: 18px;
+  margin-left: 0;
+  letter-spacing: 0.02em;
   color: #fff;
   white-space: nowrap;
 }
@@ -624,23 +624,23 @@
     padding-right: 16px;
   }
 
-  .brand-text {
-    font-size: 18px !important;
+  .nav-row .nav-left .brand-text {
+    font-size: 18px;
   }
 
   // Show hamburger menu
-  .hamburger-btn {
-    display: block !important;
+  .nav-row .hamburger-btn {
+    display: block;
   }
 
   // Hide desktop nav on mobile
-  .nav-main {
-    display: none !important;
+  .nav-row .nav-main {
+    display: none;
   }
 
   // Show subnav toggle button
-  .subnav-toggle-btn {
-    display: flex !important;
+  .nav-row .subnav-toggle-btn {
+    display: flex;
   }
 
   // Show only first 3 subnav items on mobile bar
@@ -687,8 +687,8 @@
     }
   }
 
-  .brand-text {
-    font-size: 16px !important;
+  .nav-row .nav-left .brand-text {
+    font-size: 16px;
   }
 
   .hamburger-btn {
@@ -753,8 +753,8 @@
     padding: 6px 12px;
   }
 
-  .brand-text {
-    font-size: 14px !important;
+  .nav-row .nav-left .brand-text {
+    font-size: 14px;
   }
 
   .hamburger-icon {

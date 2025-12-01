@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import Card from './components/Card'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Exclusives from './components/Exclusives'
-import DiscoverGems from './components/DiscoverGems'
-import ExploreGhana from './components/ExploreGhana'
-import BlazingDeals from './components/BlazingDeals'
 import Footer from './components/Footer'
+import Icon from './components/Icon'
 import { sections } from './data/cards'
-import GlobalHighlights from './components/GlobalHighlights'
+
+// Lazy load heavy components
+const Exclusives = lazy(() => import('./components/Exclusives'))
+const DiscoverGems = lazy(() => import('./components/DiscoverGems'))
+const ExploreGhana = lazy(() => import('./components/ExploreGhana'))
+const BlazingDeals = lazy(() => import('./components/BlazingDeals'))
+const GlobalHighlights = lazy(() => import('./components/GlobalHighlights'))
+
+const SECTIONS_WITH_MORE_ICON = ['tonight', 'hot', 'unmissable', 'buzzing'] as const
+
+// Loading fallback component
+const SectionLoader = () => (
+  <div style={{ minHeight: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ color: '#7c5cff', fontSize: '14px' }}>Loading...</div>
+  </div>
+)
 
 export default function App() {
   return (
@@ -24,18 +36,8 @@ export default function App() {
               <div className="section-head">
                 <h2>
                   {section.title}
-                  {(section.id === 'tonight' || section.id === 'hot' || section.id === 'unmissable' || section.id === 'buzzing') && (
-                    <svg
-                      className="more-icon"
-                      aria-hidden
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M9 6l6 6-6 6" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                  {SECTIONS_WITH_MORE_ICON.includes(section.id as any) && (
+                    <Icon type="chevron-right" width={20} height={20} className="more-icon" />
                   )}
                 </h2>
               </div>
@@ -47,15 +49,31 @@ export default function App() {
               </div>
             </section>
 
-            {section.id === 'unmissable' && <Exclusives />}
-            {section.id === 'buzzing' && <BlazingDeals />}
-            {section.id === 'buzzing' && <DiscoverGems />}
-            {section.id === 'buzzing' && <ExploreGhana />}
+            {section.id === 'unmissable' && (
+              <Suspense fallback={<SectionLoader />}>
+                <Exclusives />
+              </Suspense>
+            )}
+            {section.id === 'buzzing' && (
+              <>
+                <Suspense fallback={<SectionLoader />}>
+                  <BlazingDeals />
+                </Suspense>
+                <Suspense fallback={<SectionLoader />}>
+                  <DiscoverGems />
+                </Suspense>
+                <Suspense fallback={<SectionLoader />}>
+                  <ExploreGhana />
+                </Suspense>
+              </>
+            )}
           </React.Fragment>
         ))}
       </main>
 
-      <GlobalHighlights />
+      <Suspense fallback={<SectionLoader />}>
+        <GlobalHighlights />
+      </Suspense>
 
       <Footer />
     </div>
