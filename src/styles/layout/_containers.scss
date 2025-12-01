@@ -32,26 +32,32 @@
 
   h2 {
     margin: 0 0 $spacing-md 0;
-    font-size: 20px;
-    @include flex-center;
-    gap: 8px;
-    justify-content: flex-start;
+    font-size: 22px;
+    font-weight: 600;
+    color: #0f1724;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 }
 
 // More icon (chevron after section headings)
 .more-icon {
-  color: #000;
-  margin-left: 8px;
-  vertical-align: middle;
-
-  svg,
-  & {
-    vertical-align: middle;
-  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
 
   path {
     stroke: #000;
+    stroke-width: 2.5;
+  }
+
+  &:hover {
+    transform: translateX(3px);
   }
 }
 
