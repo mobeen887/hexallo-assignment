@@ -42,7 +42,7 @@ export default function App() {
 
               <div className="cards-grid">
                 {section.items.map(item => (
-                  <Card key={item.id} item={item} />
+                  <Card key={item.id} item={item} sectionId={section.id} />
                 ))}
               </div>
             </section>
